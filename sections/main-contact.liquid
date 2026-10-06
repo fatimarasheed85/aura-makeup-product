@@ -1,0 +1,95 @@
+<div data-view-section="contact" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <header style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="label-sm" style="color: var(--color-secondary); letter-spacing: 0.1em;">Private Atelier</span>
+      <h1 class="display-hero" style="color: var(--color-text-primary); margin-top: 0.5rem;">Client Concierge</h1>
+      <p class="body-lg" style="color: var(--color-text-secondary); max-width: 550px; margin: 0.75rem auto 0;">
+        Have questions regarding ritual formulations, shade pairings, or bespoke gift orders? Our personal advisors are here for you.
+      </p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="contact-grid">
+      
+      <!-- Contact Form -->
+      <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--color-text-primary); margin-bottom: 1.25rem;">Direct Inquiry</h3>
+        
+        <form onsubmit="event.preventDefault(); alert('Your message has been received by the Aura Beauty Concierge team. We will respond within 4 business hours.'); this.reset();" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Full Name</label>
+              <input type="text" required placeholder="Elena Rostova" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+            </div>
+            <div>
+              <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Email Address</label>
+              <input type="email" required placeholder="elena@example.com" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+            </div>
+          </div>
+
+          <div>
+            <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Inquiry Topic</label>
+            <select style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem; color: var(--color-text-primary);">
+              <option>Bespoke Skin Diagnostic Consultation</option>
+              <option>Order Inquiries &amp; Carbon-Neutral Delivery</option>
+              <option>Shade &amp; Formula Recommendations</option>
+              <option>Press, Editorial &amp; Wholesale Inquiries</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Your Message</label>
+            <textarea rows="4" required placeholder="Tell us about your skin ritual or question..." style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem; font-family: inherit;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding: 1rem; border-radius: var(--radius-md); font-size: 0.95rem;">
+            <span>Transmit Message to Advisor</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Atelier Details -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Atelier Flagship</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">Aura Beauty Studio Paris</h4>
+          <p class="body-md">24 Rue de Sévigné, Marais<br>75004 Paris, France</p>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.5rem;">Hours: Tue – Sat: 10:00 – 19:00 CET</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Client Care Email</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">concierge@aura-beauty.com</h4>
+          <p class="body-md">Typical advisor reply time: Under 4 business hours.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Live Tracking</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">Expecting a Ritual Box?</h4>
+          <p class="body-md" style="margin-bottom: 0.75rem;">Check your shipment status with real-time temperature verification.</p>
+          <a href="/tracking" class="btn-secondary btn-pill" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Go to Order Tracker &rarr;</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1.3fr 1fr !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Contact",
+  "settings": []
+}
+{% endschema %}

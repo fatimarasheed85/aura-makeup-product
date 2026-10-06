@@ -1,0 +1,62 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Aura Beauty Luxury",
+    "theme_version": "1.0.0",
+    "theme_author": "Antigravity",
+    "theme_documentation_url": "https://aura-beauty.com/docs",
+    "theme_support_url": "https://aura-beauty.com/support"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_canvas",
+        "label": "Canvas Background",
+        "default": "#FBF9F5"
+      },
+      {
+        "type": "color",
+        "id": "color_surface_card",
+        "label": "Card & Surface Linen",
+        "default": "#F7F2EC"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_text",
+        "label": "Primary Typography (Espresso)",
+        "default": "#2B2421"
+      },
+      {
+        "type": "color",
+        "id": "color_blush_accent",
+        "label": "Blush Accent",
+        "default": "#DFB7A7"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Muted Taupe",
+        "default": "#77574A"
+      }
+    ]
+  },
+  {
+    "name": "Shipping & Rituals",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold ($)",
+        "default": 117
+      },
+      {
+        "type": "text",
+        "id": "deluxe_gift_title",
+        "label": "Unlocked Gift Tier",
+        "default": "Deluxe 5ml Botanical Nectar"
+      }
+    ]
+  }
+]

@@ -1,0 +1,84 @@
+<div data-view-section="cart" style="background: var(--color-canvas); padding: 2rem 0 4rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <!-- Dynamic Shipping Progress Banner -->
+    <div class="shipping-progress-banner">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="label-md" style="color: var(--color-text-primary); display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-secondary);">eco</span>
+          Free Shipping &amp; Gift Tier
+        </span>
+        <span class="label-sm shipping-percent-text" style="color: var(--color-secondary);">82% Reached</span>
+      </div>
+      <p class="shipping-remaining-text body-md" style="margin-bottom: 0.75rem;">
+        Add <span style="font-weight: 600; color: var(--color-text-primary);">$17.00</span> more to unlock complimentary carbon-neutral shipping &amp; a deluxe 5ml botanical nectar sample.
+      </p>
+      <div class="progress-track">
+        <div class="progress-fill" id="shipping-progress" style="width: 82%;"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
+        <span>$0</span>
+        <span style="color: var(--color-secondary); font-weight: 500;">✦ Tier: Deluxe Miniature Unlocked</span>
+        <span style="font-weight: 600; color: var(--color-text-primary);">$117.00 Goal</span>
+      </div>
+    </div>
+
+    <!-- Header Meta -->
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+      <div style="display: flex; align-items: baseline; gap: 0.75rem;">
+        <h1 class="headline-md" style="color: var(--color-text-primary);">Your Ritual Bag</h1>
+        <span class="body-md">(<span class="cart-count-badge" style="position: static; display: inline-flex; height: 16px; min-width: 16px; padding: 0 4px; vertical-align: middle;">2</span> items)</span>
+      </div>
+      <a href="#collection" data-view="collection" style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: underline; color: var(--color-text-secondary);">
+        Keep Shopping
+      </a>
+    </div>
+
+    <!-- Dynamic Cart Items Container -->
+    <div class="cart-page-items">
+      <!-- Injected dynamically by AuraCart.updateUI() -->
+    </div>
+
+    <!-- Order Summary & Checkout -->
+    <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 2rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-text-primary);">Order Summary</h3>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Subtotal</span>
+        <span class="cart-subtotal-text" style="font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Carbon-Neutral Shipping</span>
+        <span style="color: var(--color-secondary); font-weight: 600;">Complimentary over $85</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Estimated Taxes</span>
+        <span style="color: var(--color-text-secondary);">$0.00 (Calculated at step)</span>
+      </div>
+
+      <div style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+        <span style="font-size: 1rem; font-weight: 600; color: var(--color-text-primary);">Total</span>
+        <span class="cart-total-text" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+
+      <a href="#checkout" data-view="checkout" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: var(--radius-md); text-align: center;">
+        <span>Proceed to Sacred Checkout</span>
+        <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+      </a>
+
+      <p style="text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.75rem;">
+        Protected by 256-bit bank-level encryption • 30-Day Pure Skin Guarantee
+      </p>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Cart",
+  "settings": []
+}
+{% endschema %}

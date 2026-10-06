@@ -1,0 +1,1311 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#FBF9F5">
+    <link rel="canonical" href="{{ canonical_url }}">
+    
+    <title>
+      {{ page_title | default: 'Aura Beauty' }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains 'Aura Beauty' %} &ndash; Aura Beauty Luxury{% endunless -%}
+    </title>
+
+    <meta name="description" content="{{ page_description | default: 'Aura Beauty Luxury E-Commerce - Bio-compatible, clean botanical skincare for effortless dewy glass skin.' }}">
+
+    <!-- Design System Typography & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="shopify-theme/assets/aura-luxury.css">
+
+    <!-- Asset URL Mapper for Client Engine -->
+    <script>
+      window.AURA_ASSETS = {
+        serum: "shopify-theme/assets/serum.png",
+        lipOil: "shopify-theme/assets/lip-oil.png",
+        barrierCream: "shopify-theme/assets/barrier-cream.png",
+        portrait: "shopify-theme/assets/portrait.png",
+        brandLogo: "shopify-theme/assets/brand-logo.png",
+        homePreview: "shopify-theme/assets/home-preview.png"
+      };
+    </script>
+    
+    
+  </head>
+
+  <body>
+    <!-- Interactive Demo Navigation Showcase -->
+    <nav class="demo-top-bar" aria-label="Demo Page Switcher">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-weight: 700; color: #dfb7a7; letter-spacing: 0.05em;">✦ AURA SHOPIFY DEMO:</span>
+        <span style="color: #a89f9b;">Quick Page Switcher:</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap;">
+        <a href="#home" data-view="home">1. Home</a>
+        <a href="#collection" data-view="collection">2. Collection</a>
+        <a href="#product" data-view="product">3. Product Detail</a>
+        <a href="#cart" data-view="cart">4. Bag / Cart</a>
+        <a href="#checkout" data-view="checkout">5. Checkout</a>
+        <a href="#faq" data-view="faq">6. FAQ</a>
+        <a href="#blog" data-view="blog">7. Blog</a>
+        <a href="#about" data-view="about">8. About Us</a>
+        <a href="#contact" data-view="contact">9. Contact</a>
+        <a href="#tracking" data-view="tracking">10. Order Tracking</a>
+      </div>
+    </nav>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+  <p>Complimentary radiant travel serum over $85 • Carbon-neutral worldwide delivery</p>
+</div>
+
+
+
+
+    <!-- Site Header -->
+    <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-left">
+        <button class="nav-toggle-btn" aria-label="Navigation Menu">
+          <span class="material-symbols-outlined" style="font-size: 22px;">menu</span>
+        </button>
+        <button class="header-icon-btn" aria-label="Search Catalog">
+          <span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+        </button>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="#home" class="nav-link" data-view="home">Home</a>
+        <a href="#collection" class="nav-link" data-view="collection">Collections</a>
+        <a href="#product" class="nav-link" data-view="product">Rituals</a>
+        <a href="#about" class="nav-link" data-view="about">Philosophy</a>
+        <a href="#blog" class="nav-link" data-view="blog">Journal</a>
+      </nav>
+
+      <a href="#home" class="site-logo" data-view="home">
+        <img src="shopify-theme/assets/brand-logo.png" alt="Aura Beauty Logo" width="36" height="36">
+        <span>AURA</span>
+      </a>
+
+      <div class="header-right">
+        <a href="#tracking" class="header-icon-btn" data-view="tracking" aria-label="Order Tracking" title="Track Order">
+          <span class="material-symbols-outlined" style="font-size: 20px;">local_shipping</span>
+        </a>
+        <a href="#cart" class="header-icon-btn cart-icon-btn" data-action="open-cart" data-view="cart" aria-label="Shopping Bag">
+          <span class="material-symbols-outlined" style="font-size: 22px;">shopping_bag</span>
+          <span class="cart-count-badge">2</span>
+        </a>
+        <div style="width: 32px; height: 32px; border-radius: var(--radius-full); overflow: hidden; background: var(--color-surface-container); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center;">
+          <img src="shopify-theme/assets/portrait.png" alt="Account Profile" width="32" height="32" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+
+    <!-- Cart Drawer -->
+    {% comment %}
+  Aura Beauty - Slide-out Cart Drawer Snippet
+{% endcomment %}
+
+<div class="cart-drawer-overlay">
+  <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your Ritual Bag">
+    <div class="drawer-header">
+      <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--color-text-primary);">Your Ritual Bag</h3>
+        <span class="label-md" style="color: var(--color-secondary);">(<span class="cart-count-badge" style="position: static; display: inline-flex; height: 16px; min-width: 16px; padding: 0 4px; vertical-align: middle;">2</span> items)</span>
+      </div>
+      <button data-action="close-cart" aria-label="Close Bag" style="padding: 4px; color: var(--color-text-primary);">
+        <span class="material-symbols-outlined" style="font-size: 22px;">close</span>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div style="padding: 1rem 1.5rem 0.5rem; background: var(--color-surface-low); border-bottom: 1px solid var(--color-border);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <span class="label-sm" style="color: var(--color-secondary); display: flex; align-items: center; gap: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 14px;">eco</span> Complimentary Shipping
+        </span>
+        <span class="label-sm shipping-percent-text" style="color: var(--color-secondary);">82% Reached</span>
+      </div>
+      <div class="progress-track" style="margin: 6px 0;">
+        <div class="progress-fill" id="shipping-progress" style="width: 82%;"></div>
+      </div>
+      <p class="shipping-remaining-text" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 6px;">
+        Add <span style="font-weight: 600; color: var(--color-text-primary);">$17.00</span> more to unlock complimentary carbon-neutral shipping &amp; a deluxe 5ml sample.
+      </p>
+    </div>
+
+    <div class="drawer-body cart-drawer-items">
+      <!-- Items dynamically populated by AuraCart.updateUI() -->
+    </div>
+
+    <div class="drawer-footer">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Subtotal</span>
+        <span class="cart-subtotal-text" style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 1rem;">Taxes and calculated shipping applied at checkout.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="#checkout" data-view="checkout" onclick="window.AuraCart.closeDrawer();" class="btn-primary" style="width: 100%; border-radius: var(--radius-md);">
+          <span>Proceed to Checkout</span>
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </a>
+        <a href="#cart" data-view="cart" onclick="window.AuraCart.closeDrawer();" class="btn-secondary" style="width: 100%; border-radius: var(--radius-md); text-align: center;">
+          View Full Ritual Bag
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Main Dynamic Content -->
+    <main id="MainContent" role="main" tabindex="-1">
+      <section class="hero-section" data-view-section="home" style="padding: 2rem 0 3rem; background: var(--color-canvas);">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center;" class="hero-grid">
+      
+      <!-- Text & Value Props -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0.85rem; border-radius: var(--radius-full); background: var(--color-blush-soft); align-self: flex-start;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--color-secondary);"></span>
+          <span class="label-sm" style="color: var(--color-secondary);">New Botanical Harvest</span>
+        </div>
+
+        <h1 class="display-hero" style="color: var(--color-text-primary);">
+          Skin-First Radiance,<br>
+          <span style="font-style: italic; font-weight: 300;">Bottled.</span>
+        </h1>
+
+        <p class="body-lg" style="color: var(--color-text-secondary); max-width: 480px;">
+          Clinical purity meets sensory indulgence. Cultivate your natural, dew-lit glow with cold-pressed bioactive formulations engineered for barrier resilience.
+        </p>
+
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; padding-top: 0.5rem;">
+          <a href="#collection" data-view="collection" class="btn-primary" style="padding: 0.9rem 2rem; border-radius: var(--radius-md);">
+            <span>Discover the Collection</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+          </a>
+          <a href="#product" data-view="product" class="btn-secondary" style="padding: 0.9rem 1.75rem; border-radius: var(--radius-md);">
+            The Dewy Routine
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card with Spotlight -->
+      <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; background: var(--color-surface-card); border: 1px solid var(--color-border); box-shadow: var(--shadow-card-hover);">
+        <div style="aspect-ratio: 4/5; width: 100%; position: relative; overflow: hidden;">
+          <img src="shopify-theme/assets/serum.png" alt="Luminous Dew Elixir" width="600" height="750" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(43,36,33,0.35) 0%, transparent 60%);"></div>
+          
+          <!-- Floating Spotlight Badge -->
+          <div style="position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; background: rgba(251, 249, 245, 0.92); backdrop-filter: blur(12px); border-radius: var(--radius-lg); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(234, 227, 220, 0.8);">
+            <div>
+              <span class="label-sm" style="color: var(--color-secondary);">Spotlight Routine</span>
+              <h3 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-text-primary); margin-top: 2px;">Luminous Dew Elixir</h3>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--color-text-primary);">$68</span>
+              <button onclick="window.quickAddProduct('elixir-01')" class="btn-primary btn-pill" style="padding: 0.4rem 1rem; font-size: 0.75rem;">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section style="background: var(--color-surface-low); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 1.5rem 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; text-align: center;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; color: var(--color-secondary);">
+          <span class="material-symbols-outlined" style="font-size: 20px;">eco</span>
+        </div>
+        <div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary);">100% Clean Actives</h4>
+          <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 2px;">Cold-pressed unbleached botanicals</p>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; color: var(--color-secondary);">
+          <span class="material-symbols-outlined" style="font-size: 20px;">pets</span>
+        </div>
+        <div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary);">Cruelty-Free Certified</h4>
+          <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 2px;">Ethically formulated in Paris &amp; Kyoto</p>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-surface-container); display: flex; align-items: center; justify-content: center; color: var(--color-secondary);">
+          <span class="material-symbols-outlined" style="font-size: 20px;">forest</span>
+        </div>
+        <div>
+          <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--color-text-primary);">Carbon-Neutral Shipping</h4>
+          <p style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 2px;">Biodegradable seed-paper packaging</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
+
+
+
+<section class="featured-section" data-view-section="home" style="padding: 4rem 0; background: var(--color-canvas);">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); margin-bottom: 0.35rem;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">flare</span>
+          <span class="label-sm">Curated Essentials</span>
+        </div>
+        <h2 class="headline-lg" style="color: var(--color-text-primary);">The Complexion Rituals</h2>
+      </div>
+      <a href="#collection" data-view="collection" class="btn-secondary btn-pill" style="font-size: 0.8125rem;">View Full Collection &rarr;</a>
+    </div>
+
+    <!-- Product Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
+      
+      <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Best Seller</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="shopify-theme/assets/serum.png" alt="Luminous Dew Elixir" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Revitalizing Concentrate</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Luminous Dew Elixir</a></h3>
+          <p class="product-card-benefit">Multi-active botanical elixir with bio-mimetic hyaluronic peptides.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$68.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('elixir-01')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Award Winner</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="shopify-theme/assets/barrier-cream.png" alt="Whipped Barrier Cream" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Restorative Moisture</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Whipped Barrier Cream</a></h3>
+          <p class="product-card-benefit">Ceramide-rich whipped emulsion for ultra-soft, glass skin recovery.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$62.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('cream-02')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">New Arrival</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="shopify-theme/assets/lip-oil.png" alt="Petal Rose Lip Oil" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Sensory Treatment</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Petal Rose Lip Oil</a></h3>
+          <p class="product-card-benefit">Glass vial with gold wand applicator in sheer petal rose hue.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$34.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('oil-03')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Portrait Callout -->
+      <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+        <div style="aspect-ratio: 4/5; width: 100%; position: relative;">
+          <img src="shopify-theme/assets/portrait.png" alt="Radiant Woman Glowing Glass Skin" width="400" height="500" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(33,26,23,0.7) 0%, transparent 60%);"></div>
+          <div style="position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; color: #ffffff;">
+            <span class="label-sm" style="color: var(--color-blush-accent); letter-spacing: 0.1em;">Editorial Spread</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin-top: 4px; line-height: 1.3;">The Glass Skin Ritual</h4>
+            <a href="#blog" data-view="blog" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; color: #ffffff; text-decoration: underline; margin-top: 0.5rem;">Read Journal &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<div data-view-section="collection" style="background: var(--color-canvas); padding: 1.5rem 0 4rem;">
+  <div class="container">
+    
+    <!-- Category Header -->
+    <header style="margin-bottom: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.35rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">flare</span>
+        <span class="label-sm">Mindful Formulations</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">The Complexion &amp; Dew Collection</h1>
+      <p class="body-md" style="margin-top: 0.5rem; max-width: 600px;">
+        16 high-performance, skin-first rituals crafted for luminous vitality and biocompatible barrier repair.
+      </p>
+    </header>
+
+    <!-- Sticky Filters & Sort Bar -->
+    <div style="position: sticky; top: 68px; z-index: 20; background: rgba(251, 249, 245, 0.95); backdrop-filter: blur(12px); padding: 0.75rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+      <div style="display: flex; align-items: center; gap: 0.5rem; overflow-x: auto; padding-bottom: 4px;">
+        <button class="btn-secondary btn-pill" style="padding: 0.4rem 1rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">tune</span>
+          <span>Filter &amp; Sort (3)</span>
+        </button>
+        <span style="width: 1px; height: 20px; background: var(--color-border); flex-shrink: 0;"></span>
+        
+        <button class="btn-primary btn-pill filter-chip active" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap; display: flex; align-items: center; gap: 4px;">
+          <span>Finish: Dewy Glow</span>
+          <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Serum &amp; Oil
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Barrier Repair
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Under $70
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Grid (2 to 4 columns) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem;" id="collection-grid">
+      
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Best Seller</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="shopify-theme/assets/serum.png" alt="Luminous Dew Elixir" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Revitalizing Concentrate</span>
+          <h3 class="product-card-title"><a href="/product">Luminous Dew Elixir</a></h3>
+          <p class="product-card-benefit">Multi-active botanical elixir with bio-mimetic hyaluronic peptides.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$68.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('elixir-01')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Award Winner</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="shopify-theme/assets/barrier-cream.png" alt="Whipped Barrier Cream" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Restorative Moisture</span>
+          <h3 class="product-card-title"><a href="/product">Whipped Barrier Cream</a></h3>
+          <p class="product-card-benefit">Ceramide-rich whipped emulsion for ultra-soft, glass skin recovery.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$62.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('cream-02')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">New Arrival</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="shopify-theme/assets/lip-oil.png" alt="Petal Rose Lip Oil" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Sensory Treatment</span>
+          <h3 class="product-card-title"><a href="/product">Petal Rose Lip Oil</a></h3>
+          <p class="product-card-benefit">Glass vial with gold wand applicator in sheer petal rose hue.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$34.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('oil-03')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">Clean Formula</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="shopify-theme/assets/serum.png" alt="Botanical Radiance Nectar" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Overnight Renewal</span>
+          <h3 class="product-card-title"><a href="/product">Botanical Radiance Nectar</a></h3>
+          <p class="product-card-benefit">Bio-fermented bakuchiol oil to smooth fine lines overnight.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$74.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('nectar-04')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div data-view-section="product" style="background: var(--color-canvas); padding: 2rem 0 4rem;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="product-layout-grid">
+      
+      <!-- Left: Interactive Gallery -->
+      <div>
+        <div style="aspect-ratio: 4/5; border-radius: var(--radius-xl); overflow: hidden; background: var(--color-surface-container); border: 1px solid var(--color-border); position: relative; box-shadow: var(--shadow-subtle);">
+          <img id="main-product-image" src="shopify-theme/assets/serum.png" alt="Luminous Dew Elixir on Natural Travertine Pedestal" width="600" height="750" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.25s ease;">
+          <div style="position: absolute; top: 1rem; left: 1rem;">
+            <span class="badge-award">Award Winner</span>
+          </div>
+          <div style="position: absolute; bottom: 1rem; inset-x: 0; display: flex; justify-content: center; gap: 6px;">
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-text-primary); cursor: pointer;" onclick="window.switchProductSlide(0)"></span>
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer;" onclick="window.switchProductSlide(1)"></span>
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer;" onclick="window.switchProductSlide(2)"></span>
+          </div>
+        </div>
+
+        <!-- Thumbnail selector strip -->
+        <div style="display: flex; gap: 0.75rem; margin-top: 1rem; overflow-x: auto; padding-bottom: 4px;">
+          <button class="thumb-btn" onclick="window.switchProductSlide(0)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--color-text-primary); cursor: pointer; flex-shrink: 0;">
+            <img src="shopify-theme/assets/serum.png" alt="Bottle angle" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <button class="thumb-btn" onclick="window.switchProductSlide(1)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid transparent; opacity: 0.6; cursor: pointer; flex-shrink: 0;">
+            <img src="shopify-theme/assets/lip-oil.png" alt="Macro droplet" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <button class="thumb-btn" onclick="window.switchProductSlide(2)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid transparent; opacity: 0.6; cursor: pointer; flex-shrink: 0;">
+            <img src="shopify-theme/assets/portrait.png" alt="Hydrated glow" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <div style="width: 70px; height: 85px; border-radius: var(--radius-md); background: var(--color-blush-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-secondary); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; cursor: pointer; flex-shrink: 0;">
+            <span class="material-symbols-outlined" style="font-size: 22px;">view_in_ar</span>
+            <span>3D View</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Details, Rituals & Purchase -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span class="label-sm" style="color: var(--color-secondary);">Aura Skincare • Clinical Botanical</span>
+            <span class="badge-clean"><span class="material-symbols-outlined" style="font-size: 13px;">eco</span> Clean Formula</span>
+          </div>
+
+          <h1 class="headline-lg" style="color: var(--color-text-primary);">Luminous Dew Elixir</h1>
+          <p class="body-md" style="margin-top: 0.25rem;">Multi-Active Botanical Face Serum &amp; Illuminating Treatment</p>
+
+          <!-- Reviews rating -->
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem;">
+            <div style="display: flex; color: #d4a373;">
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">4.9</span>
+            <span style="font-size: 0.8rem; color: var(--color-text-secondary);">(142 verified client reviews)</span>
+          </div>
+
+          <!-- Price -->
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-top: 1.25rem;">
+            <span style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--color-text-primary);">$68.00</span>
+            <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">or 4 interest-free payments of $17.00 with Afterpay</span>
+          </div>
+        </div>
+
+        <!-- Volume selection -->
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-primary);">Size &amp; Volume</label>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8125rem; border-radius: var(--radius-full);">30ml / 1.0 fl oz</button>
+            <button class="btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.8125rem; border-radius: var(--radius-full);">50ml Luxury Flacon (+$34)</button>
+          </div>
+        </div>
+
+        <!-- Purchase Actions -->
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-top: 0.5rem;">
+          <button onclick="window.quickAddProduct('elixir-01')" class="btn-primary" style="padding: 1rem; width: 100%; font-size: 0.95rem; border-radius: var(--radius-md);">
+            <span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span>
+            <span>Add to Ritual Bag — $68.00</span>
+          </button>
+          <a href="/checkout" class="btn-secondary" style="padding: 0.9rem; width: 100%; text-align: center; border-radius: var(--radius-md); background: var(--color-blush-soft); color: var(--color-secondary);">
+            Instant Express Checkout
+          </a>
+        </div>
+
+        <!-- Sensory Accordions -->
+        <div class="ritual-accordion" style="margin-top: 1.5rem;">
+          <div class="accordion-item active">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>The Ritual: How to Apply</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Warm 3 to 4 drops between the palms of clean hands. Gently press into cleansed facial contours, neck, and decolletage using measured upward strokes. Recommended for morning awakening and evening restorative layering.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>Clinical Bio-Activity &amp; Trials</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Independent 28-day blind clinical evaluation: 96% observed immediate luminous glass-skin hydration; 91% reported strengthened epidermal barrier and reduced trans-epidermal water loss.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>Key Actives &amp; Full INCI Ingredients</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Camellia Japonica Seed Oil, Cold-Pressed Squalane, Meadowfoam Delta-Lactone, Ceramide NP, Multi-Molecular Hyaluronic Complex, Rosa Damascena Flower Nectar, Bakuchiol, Vitamin E Tocopherol. 100% Free of synthetic fragrance, parabens, sulfates, and silicones.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .product-layout-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
+
+
+
+<div data-view-section="cart" style="background: var(--color-canvas); padding: 2rem 0 4rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <!-- Dynamic Shipping Progress Banner -->
+    <div class="shipping-progress-banner">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span class="label-md" style="color: var(--color-text-primary); display: flex; align-items: center; gap: 6px;">
+          <span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-secondary);">eco</span>
+          Free Shipping &amp; Gift Tier
+        </span>
+        <span class="label-sm shipping-percent-text" style="color: var(--color-secondary);">82% Reached</span>
+      </div>
+      <p class="shipping-remaining-text body-md" style="margin-bottom: 0.75rem;">
+        Add <span style="font-weight: 600; color: var(--color-text-primary);">$17.00</span> more to unlock complimentary carbon-neutral shipping &amp; a deluxe 5ml botanical nectar sample.
+      </p>
+      <div class="progress-track">
+        <div class="progress-fill" id="shipping-progress" style="width: 82%;"></div>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.5rem;">
+        <span>$0</span>
+        <span style="color: var(--color-secondary); font-weight: 500;">✦ Tier: Deluxe Miniature Unlocked</span>
+        <span style="font-weight: 600; color: var(--color-text-primary);">$117.00 Goal</span>
+      </div>
+    </div>
+
+    <!-- Header Meta -->
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+      <div style="display: flex; align-items: baseline; gap: 0.75rem;">
+        <h1 class="headline-md" style="color: var(--color-text-primary);">Your Ritual Bag</h1>
+        <span class="body-md">(<span class="cart-count-badge" style="position: static; display: inline-flex; height: 16px; min-width: 16px; padding: 0 4px; vertical-align: middle;">2</span> items)</span>
+      </div>
+      <a href="#collection" data-view="collection" style="font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: underline; color: var(--color-text-secondary);">
+        Keep Shopping
+      </a>
+    </div>
+
+    <!-- Dynamic Cart Items Container -->
+    <div class="cart-page-items">
+      <!-- Injected dynamically by AuraCart.updateUI() -->
+    </div>
+
+    <!-- Order Summary & Checkout -->
+    <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 2rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-text-primary);">Order Summary</h3>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Subtotal</span>
+        <span class="cart-subtotal-text" style="font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Carbon-Neutral Shipping</span>
+        <span style="color: var(--color-secondary); font-weight: 600;">Complimentary over $85</span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem;">
+        <span style="color: var(--color-text-secondary);">Estimated Taxes</span>
+        <span style="color: var(--color-text-secondary);">$0.00 (Calculated at step)</span>
+      </div>
+
+      <div style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+        <span style="font-size: 1rem; font-weight: 600; color: var(--color-text-primary);">Total</span>
+        <span class="cart-total-text" style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+
+      <a href="#checkout" data-view="checkout" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: var(--radius-md); text-align: center;">
+        <span>Proceed to Sacred Checkout</span>
+        <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+      </a>
+
+      <p style="text-align: center; font-size: 0.75rem; color: var(--color-text-muted); margin-top: 0.75rem;">
+        Protected by 256-bit bank-level encryption • 30-Day Pure Skin Guarantee
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div data-view-section="checkout" style="background: var(--color-canvas); padding: 2.5rem 0 5rem;">
+  <div class="container" style="max-width: 1000px;">
+    
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="shopify-theme/assets/brand-logo.png" alt="Aura Logo" width="36" height="36" style="height: 36px; width: 36px; object-fit: contain;">
+        <span style="font-family: var(--font-serif); font-size: 1.75rem; letter-spacing: 0.05em; color: var(--color-text-primary);">AURA</span>
+      </a>
+      <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em;">Sacred Ritual Checkout</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;" class="checkout-grid">
+      
+      <!-- Left: Checkout Forms -->
+      <div>
+        
+        <!-- Express Payment -->
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-text-secondary); display: block; margin-bottom: 0.75rem; text-align: center;">Express Luxury Checkout</span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <button class="btn-primary" style="background: #5a31f4; border-color: #5a31f4; padding: 0.75rem; font-size: 0.9rem; border-radius: var(--radius-md);">Shop Pay</button>
+            <button class="btn-primary" style="background: #ffc439; color: #111; border-color: #ffc439; padding: 0.75rem; font-size: 0.9rem; border-radius: var(--radius-md);">PayPal</button>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0;">
+          <span style="height: 1px; background: var(--color-border); flex: 1;"></span>
+          <span class="label-sm" style="color: var(--color-text-muted);">or standard details</span>
+          <span style="height: 1px; background: var(--color-border); flex: 1;"></span>
+        </div>
+
+        <!-- Contact & Shipping Form -->
+        <form onsubmit="event.preventDefault(); alert('Order Placed Successfully! Your Order Confirmation is #AURA-8492. Check Order Tracking page to trace delivery.'); window.location.href='/tracking';" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">1. Client Contact</h3>
+            <input type="email" placeholder="Email Address for Order Confirmation" required style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+          </div>
+
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">2. Delivery Sanctuary</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <input type="text" placeholder="First Name" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="Last Name" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+            </div>
+            <input type="text" placeholder="Street Address / Suite" required style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem; margin-bottom: 0.75rem;">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem;">
+              <input type="text" placeholder="City" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="State / Province" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="Postal Code" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">3. Complimentary Botanical Sample</h3>
+            <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-secondary);">
+                <div>
+                  <p style="font-weight: 600; font-size: 0.875rem; color: var(--color-text-primary);">Include 5ml Deluxe Dew Elixir Sample</p>
+                  <p style="font-size: 0.75rem; color: var(--color-text-secondary);">Encased in travel glass flacon</p>
+                </div>
+              </div>
+              <span class="badge-award">Free Gift</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding: 1.15rem; font-size: 1rem; border-radius: var(--radius-md); width: 100%; margin-top: 1rem;">
+            <span>Complete Order</span>
+            <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+          </button>
+        </form>
+
+      </div>
+
+      <!-- Right: Order Items & Subtotal -->
+      <div>
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; position: sticky; top: 90px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--color-text-primary);">Ritual Bag Summary</h3>
+          
+          <div class="cart-drawer-items" style="max-height: 280px; overflow-y: auto; margin-bottom: 1.25rem;">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--color-text-secondary);">Subtotal</span>
+              <span class="cart-subtotal-text" style="font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--color-text-secondary);">Shipping</span>
+              <span style="color: var(--color-secondary); font-weight: 600;">Carbon-Neutral Free</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 600; border-top: 1px solid var(--color-border); padding-top: 0.75rem; margin-top: 0.5rem;">
+              <span>Total Due</span>
+              <span class="cart-total-text" style="font-family: var(--font-serif); color: var(--color-text-primary);">$100.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .checkout-grid {
+      grid-template-columns: 1.3fr 1fr !important;
+    }
+  }
+</style>
+
+
+
+<div data-view-section="faq" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 800px;">
+    
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.5rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">help</span>
+        <span class="label-sm">Client Guidance &amp; Rituals</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">Frequently Answered Inquiries</h1>
+      <p class="body-md" style="margin-top: 0.5rem;">Everything you need to know about our cold-pressed bioactive formulations, sustainability practices, and application rituals.</p>
+    </div>
+
+    <!-- Accordion Group 1: Formulations -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="material-symbols-outlined" style="color: var(--color-secondary);">eco</span>
+        Formulations &amp; Bio-Activity
+      </h3>
+      
+      <div class="ritual-accordion">
+        <div class="accordion-item active">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>What makes Aura formulations biocompatible?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Our chemists formulate with physiological lipids, phytosterols, and skin-identical ceramides. Rather than sitting on the surface, our lightweight molecular weight allows deep absorption without occlusive heaviness, supporting your skin’s innate lipid matrix.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>Are Aura Beauty products safe for sensitive or reactive skin?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Yes. Every formula is dermatologist-tested, hypoallergenic, and clinically trialed on reactive complexions. We strictly exclude artificial fragrance, synthetic dyes, alcohol, sulfates, and parabens.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How does the cold-pressing process preserve potency?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Traditional heat extraction damages delicate antioxidants and fatty acids. Our low-temperature, zero-heat hydraulic extraction preserves 98.4% of natural bioactive vitamins and enzymes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion Group 2: Shipping & Packaging -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="material-symbols-outlined" style="color: var(--color-secondary);">local_shipping</span>
+        Shipping, Packaging &amp; Sustainability
+      </h3>
+      
+      <div class="ritual-accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How does complimentary carbon-neutral shipping work?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Orders over $85 automatically receive complimentary carbon-neutral delivery. We offset 100% of transport emissions through certified reforestation projects in Hokkaido and the Scottish Highlands.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>Is your packaging truly compostable?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Our outer packaging is made with recycled cotton seed paper embedded with wild chamomile seeds—simply plant the box in soil and keep moist. Our flacons and jars are crafted from 100% recyclable frosted glass and gold aluminum.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How do I track my active parcel?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            You can visit our <a href="/tracking" style="text-decoration: underline; color: var(--color-secondary); font-weight: 600;">Order Tracking Sanctuary</a> and enter your order confirmation number (e.g. #AURA-8492) for real-time temperature and courier milestones.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div data-view-section="blog" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container">
+    
+    <header style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="label-sm" style="color: var(--color-secondary); letter-spacing: 0.1em;">Editorial Spread</span>
+      <h1 class="display-hero" style="color: var(--color-text-primary); margin-top: 0.5rem;">The Radiance Journal</h1>
+      <p class="body-lg" style="color: var(--color-text-secondary); max-width: 550px; margin: 0.75rem auto 0;">
+        Ritual essays, botanical harvest dispatches, and mindful practices for timeless glass-skin health.
+      </p>
+    </header>
+
+    <!-- Featured Magazine Spread -->
+    <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 3.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center;" class="featured-article-grid">
+      <div style="aspect-ratio: 16/10; overflow: hidden; position: relative;">
+        <img src="shopify-theme/assets/portrait.png" alt="Dewy Glass Skin Editorial" width="600" height="375" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="padding: 1.5rem 2rem 2rem;">
+        <span class="badge-award">Cover Story • 6 min read</span>
+        <h2 class="headline-md" style="color: var(--color-text-primary); margin: 0.75rem 0 0.5rem;">
+          Cultivating Glass Skin: The Architecture of Pure Lipid Layering
+        </h2>
+        <p class="body-md" style="margin-bottom: 1.25rem;">
+          Why synthetic occlusives fail, and how biocompatible botanical squalane, camellia seed oil, and micro-fermented ceramides create lasting luminosity from within.
+        </p>
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 0.75rem; color: var(--color-text-muted);">By Dr. Elena Vance • Chief Botanical Biochemist</span>
+          <a href="/product" class="btn-primary btn-pill" style="font-size: 0.8rem; padding: 0.5rem 1.25rem;">Read Essay</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Matrix -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+      
+      <!-- Article 1 -->
+      <article style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+        <div style="aspect-ratio: 16/10; overflow: hidden;">
+          <img src="shopify-theme/assets/serum.png" alt="Travertine Bottle" width="400" height="250" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+          <span class="label-sm" style="color: var(--color-secondary);">Botanical Science</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-text-primary); margin: 0.5rem 0;">
+            The Autumn Camellia Harvest in Kyoto
+          </h3>
+          <p class="body-md" style="margin-bottom: 1rem; flex: 1;">
+            A behind-the-scenes look at our sustainable zero-heat press extraction in the mist-veiled mountains of Uji.
+          </p>
+          <a href="/collection" style="font-size: 0.8125rem; font-weight: 600; text-decoration: underline; color: var(--color-text-primary);">Discover Harvest &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+        <div style="aspect-ratio: 16/10; overflow: hidden;">
+          <img src="shopify-theme/assets/barrier-cream.png" alt="Whipped Barrier Cream" width="400" height="250" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+          <span class="label-sm" style="color: var(--color-secondary);">Morning Ritual</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-text-primary); margin: 0.5rem 0;">
+            The 3-Step Dew Awakening: Lymphatic Drainage
+          </h3>
+          <p class="body-md" style="margin-bottom: 1rem; flex: 1;">
+            Awaken facial vitality with temperature stimulation and cold-pressed whipping techniques.
+          </p>
+          <a href="/product" style="font-size: 0.8125rem; font-weight: 600; text-decoration: underline; color: var(--color-text-primary);">Explore Ritual &rarr;</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+        <div style="aspect-ratio: 16/10; overflow: hidden;">
+          <img src="shopify-theme/assets/lip-oil.png" alt="Petal Rose Lip Oil" width="400" height="250" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; flex: 1;">
+          <span class="label-sm" style="color: var(--color-secondary);">Sensory Beauty</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--color-text-primary); margin: 0.5rem 0;">
+            Damask Rose: The Alchemy of Petal Peptides
+          </h3>
+          <p class="body-md" style="margin-bottom: 1rem; flex: 1;">
+            How natural anthocyanins provide sheer, effortless blushing tints without synthetic microplastics.
+          </p>
+          <a href="/collection" style="font-size: 0.8125rem; font-weight: 600; text-decoration: underline; color: var(--color-text-primary);">View Lip Oil &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .featured-article-grid {
+      grid-template-columns: 1.2fr 1fr !important;
+    }
+  }
+</style>
+
+
+
+<div data-view-section="about" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <header style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="label-sm" style="color: var(--color-secondary); letter-spacing: 0.1em;">Our Clean House</span>
+      <h1 class="display-hero" style="color: var(--color-text-primary); margin-top: 0.5rem;">The Aura Philosophy</h1>
+      <p class="body-lg" style="color: var(--color-text-secondary); max-width: 600px; margin: 0.75rem auto 0;">
+        Conscious luxury born from the sensory calm of Japanese botanicals and French green biochemistry.
+      </p>
+    </header>
+
+    <!-- Visual Story Banner -->
+    <div style="border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 3.5rem; position: relative; border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+      <img src="shopify-theme/assets/home-preview.png" alt="Aura Beauty Botanical Atelier" width="900" height="480" style="width: 100%; max-height: 480px; object-fit: cover;">
+    </div>
+
+    <!-- Editorial Text Section -->
+    <div style="display: flex; flex-direction: column; gap: 2.5rem; font-size: 1.05rem; line-height: 1.8; color: var(--color-text-primary);">
+      <div>
+        <h2 class="headline-md" style="margin-bottom: 1rem;">Purity Without Clinical Sterility</h2>
+        <p style="color: var(--color-text-secondary);">
+          We founded Aura Beauty out of a longing for quiet luxury: formulations that honor the skin’s delicate ecosystem rather than waging war against it. For decades, the cosmetics landscape demanded a compromise between cold, clinical chemicals that stripped the skin barrier, or natural oils that felt heavy and unstable.
+        </p>
+        <p style="color: var(--color-text-secondary); margin-top: 1rem;">
+          Our answer is <strong>Radiant Dew Bio-Compatibility</strong>—a meticulous balance where every single active lipid, botanical ferments, and plant-derived hyaluronic peptide mirrors your body's natural moisture barrier.
+        </p>
+      </div>
+
+      <!-- Core Brand Pillars -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 1rem 0;">
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">eco</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Wild Harvested</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Sustainably collected Camellia seed, rosehip, and meadowfoam picked at dawn peak potency.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">science</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Zero-Heat Extraction</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Hydraulic low-temperature pressing ensures delicate antioxidants never oxidize or degrade.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">compost</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Closed Loop Earth</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Plantable chamomile seed boxes, recycled frosted flacons, and certified carbon offsets.</p>
+        </div>
+      </div>
+
+      <!-- Founder Quote -->
+      <div style="background: var(--color-surface-card); border-left: 3px solid var(--color-blush-accent); padding: 2rem; border-radius: 0 var(--radius-lg) var(--radius-lg) 0;">
+        <blockquote style="font-family: var(--font-serif); font-size: 1.35rem; font-style: italic; color: var(--color-text-primary); margin-bottom: 1rem;">
+          "True radiance isn't a coat of paint. It is the quiet, luminous sigh of a skin barrier that finally has everything it needs."
+        </blockquote>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="shopify-theme/assets/portrait.png" alt="Aura Founder" width="44" height="44" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+          <div>
+            <p style="font-weight: 600; font-size: 0.9rem; color: var(--color-text-primary);">Aura Beauchamp</p>
+            <p style="font-size: 0.75rem; color: var(--color-text-secondary);">Founder &amp; Creative Formulator</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="/collection" class="btn-primary btn-pill" style="padding: 0.9rem 2.25rem;">Experience The Collection</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div data-view-section="contact" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <header style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="label-sm" style="color: var(--color-secondary); letter-spacing: 0.1em;">Private Atelier</span>
+      <h1 class="display-hero" style="color: var(--color-text-primary); margin-top: 0.5rem;">Client Concierge</h1>
+      <p class="body-lg" style="color: var(--color-text-secondary); max-width: 550px; margin: 0.75rem auto 0;">
+        Have questions regarding ritual formulations, shade pairings, or bespoke gift orders? Our personal advisors are here for you.
+      </p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="contact-grid">
+      
+      <!-- Contact Form -->
+      <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--color-text-primary); margin-bottom: 1.25rem;">Direct Inquiry</h3>
+        
+        <form onsubmit="event.preventDefault(); alert('Your message has been received by the Aura Beauty Concierge team. We will respond within 4 business hours.'); this.reset();" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Full Name</label>
+              <input type="text" required placeholder="Elena Rostova" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+            </div>
+            <div>
+              <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Email Address</label>
+              <input type="email" required placeholder="elena@example.com" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+            </div>
+          </div>
+
+          <div>
+            <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Inquiry Topic</label>
+            <select style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem; color: var(--color-text-primary);">
+              <option>Bespoke Skin Diagnostic Consultation</option>
+              <option>Order Inquiries &amp; Carbon-Neutral Delivery</option>
+              <option>Shade &amp; Formula Recommendations</option>
+              <option>Press, Editorial &amp; Wholesale Inquiries</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="label-sm" style="display: block; margin-bottom: 0.35rem;">Your Message</label>
+            <textarea rows="4" required placeholder="Tell us about your skin ritual or question..." style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem; font-family: inherit;"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding: 1rem; border-radius: var(--radius-md); font-size: 0.95rem;">
+            <span>Transmit Message to Advisor</span>
+            <span class="material-symbols-outlined" style="font-size: 18px;">send</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Atelier Details -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Atelier Flagship</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">Aura Beauty Studio Paris</h4>
+          <p class="body-md">24 Rue de Sévigné, Marais<br>75004 Paris, France</p>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 0.5rem;">Hours: Tue – Sat: 10:00 – 19:00 CET</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Client Care Email</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">concierge@aura-beauty.com</h4>
+          <p class="body-md">Typical advisor reply time: Under 4 business hours.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-secondary);">Live Tracking</span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.35rem 0;">Expecting a Ritual Box?</h4>
+          <p class="body-md" style="margin-bottom: 0.75rem;">Check your shipment status with real-time temperature verification.</p>
+          <a href="/tracking" class="btn-secondary btn-pill" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Go to Order Tracker &rarr;</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1.3fr 1fr !important;
+    }
+  }
+</style>
+
+
+
+<div data-view-section="tracking" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 760px;">
+    
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.5rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">local_shipping</span>
+        <span class="label-sm">Fulfillment Sanctuary</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">Track Your Shipment</h1>
+      <p class="body-md" style="margin-top: 0.5rem;">
+        Enter your order confirmation number (e.g. <strong>#AURA-8492</strong>) and email to trace your carbon-neutral delivery in real time.
+      </p>
+    </header>
+
+    <!-- Tracking Lookup Card -->
+    <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-subtle);">
+      <form onsubmit="window.trackOrder(event);" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.35rem; color: var(--color-text-primary);">Order Number</label>
+          <input type="text" id="tracking-order-input" value="#AURA-8492" required placeholder="#AURA-XXXX" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.95rem; font-family: monospace; letter-spacing: 0.05em;">
+        </div>
+
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.35rem; color: var(--color-text-primary);">Client Email or Phone</label>
+          <input type="email" value="client@example.com" required placeholder="name@domain.com" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+        </div>
+
+        <button type="submit" class="btn-primary" style="padding: 1rem; border-radius: var(--radius-md); font-size: 0.95rem; margin-top: 0.5rem;">
+          <span>Locate Parcel &amp; View Milestones</span>
+          <span class="material-symbols-outlined" style="font-size: 18px;">radar</span>
+        </button>
+      </form>
+
+      <!-- Tracking Results Box (Loaded on submit) -->
+      <div id="tracking-result">
+        <!-- Automatically initialized on page load with trackOrder() -->
+      </div>
+    </div>
+
+    <!-- Assurance notice -->
+    <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; text-align: center; font-size: 0.8rem; color: var(--color-text-muted);">
+      <span style="display: flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">thermostat</span> Climate-controlled transit</span>
+      <span style="display: flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">forest</span> 100% Carbon offset</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Show default tracking demo on load
+    if (window.trackOrder) {
+      window.trackOrder();
+    }
+  });
+</script>
+
+
+
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <img src="shopify-theme/assets/brand-logo.png" alt="Aura Logo" width="28" height="28" style="height: 28px; width: 28px; object-fit: contain; filter: brightness(0) invert(1);">
+          <span style="font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 0.05em; color: #ffffff;">AURA</span>
+        </div>
+        <p>Sensory calm and luminous purity. Crafted with bio-compatible cold-pressed botanicals for effortless dewy radiance.</p>
+        <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+          <span class="badge-clean" style="background: rgba(255,255,255,0.1); color: #ffffff;">Carbon-Neutral</span>
+          <span class="badge-clean" style="background: rgba(255,255,255,0.1); color: #ffffff;">Cruelty-Free</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Boutique Rituals</h4>
+        <ul class="footer-links">
+          <li><a href="#collection" data-view="collection">The Dew Collection</a></li>
+          <li><a href="#product" data-view="product">Luminous Dew Elixir</a></li>
+          <li><a href="#collection" data-view="collection">Barrier Repair Creams</a></li>
+          <li><a href="#collection" data-view="collection">Lip Oil Treatments</a></li>
+          <li><a href="#collection" data-view="collection">Sensory Gift Sets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">The House</h4>
+        <ul class="footer-links">
+          <li><a href="#about" data-view="about">Our Clean Philosophy</a></li>
+          <li><a href="#blog" data-view="blog">The Radiance Journal</a></li>
+          <li><a href="#faq" data-view="faq">Client Care &amp; FAQ</a></li>
+          <li><a href="#tracking" data-view="tracking">Track Your Shipment</a></li>
+          <li><a href="#contact" data-view="contact">Concierge Studio</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">The Radiance Letter</h4>
+        <p style="font-size: 0.8125rem; color: #a89f9b; margin-bottom: 1rem;">Receive seasonal botanical harvest notes and private preview invitations.</p>
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Radiance Letter.');" style="display: flex; gap: 0.5rem;">
+          <input type="email" placeholder="Your email address" required style="flex: 1; padding: 0.65rem 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #ffffff; font-size: 0.8125rem;">
+          <button type="submit" class="btn-primary btn-pill" style="padding: 0.65rem 1rem; font-size: 0.75rem; background: var(--color-blush-accent); color: var(--color-text-primary);">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aura Beauty Luxury, Inc. All rights reserved. Designed with Radiant Dew Skin system.</p>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#faq" data-view="faq">Privacy Policy</a>
+        <a href="#faq" data-view="faq">Terms of Service</a>
+        <a href="#contact" data-view="contact">Customer Concierge</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+    <!-- Theme Client Engine -->
+    <script src="shopify-theme/assets/aura-theme.js" defer></script>
+  </body>
+</html>

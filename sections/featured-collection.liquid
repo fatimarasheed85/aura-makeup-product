@@ -1,0 +1,93 @@
+<section class="featured-section" data-view-section="home" style="padding: 4rem 0; background: var(--color-canvas);">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary); margin-bottom: 0.35rem;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">flare</span>
+          <span class="label-sm">Curated Essentials</span>
+        </div>
+        <h2 class="headline-lg" style="color: var(--color-text-primary);">The Complexion Rituals</h2>
+      </div>
+      <a href="#collection" data-view="collection" class="btn-secondary btn-pill" style="font-size: 0.8125rem;">View Full Collection &rarr;</a>
+    </div>
+
+    <!-- Product Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem;">
+      
+      <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Best Seller</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="{{ 'serum.png' | asset_url }}" alt="Luminous Dew Elixir" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Revitalizing Concentrate</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Luminous Dew Elixir</a></h3>
+          <p class="product-card-benefit">Multi-active botanical elixir with bio-mimetic hyaluronic peptides.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$68.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('elixir-01')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Award Winner</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="{{ 'barrier-cream.png' | asset_url }}" alt="Whipped Barrier Cream" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Restorative Moisture</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Whipped Barrier Cream</a></h3>
+          <p class="product-card-benefit">Ceramide-rich whipped emulsion for ultra-soft, glass skin recovery.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$62.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('cream-02')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">New Arrival</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="#product" data-view="product"><img src="{{ 'lip-oil.png' | asset_url }}" alt="Petal Rose Lip Oil" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Sensory Treatment</span>
+          <h3 class="product-card-title"><a href="#product" data-view="product">Petal Rose Lip Oil</a></h3>
+          <p class="product-card-benefit">Glass vial with gold wand applicator in sheer petal rose hue.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$34.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('oil-03')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Portrait Callout -->
+      <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column;">
+        <div style="aspect-ratio: 4/5; width: 100%; position: relative;">
+          <img src="{{ 'portrait.png' | asset_url }}" alt="Radiant Woman Glowing Glass Skin" width="400" height="500" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(33,26,23,0.7) 0%, transparent 60%);"></div>
+          <div style="position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; color: #ffffff;">
+            <span class="label-sm" style="color: var(--color-blush-accent); letter-spacing: 0.1em;">Editorial Spread</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin-top: 4px; line-height: 1.3;">The Glass Skin Ritual</h4>
+            <a href="#blog" data-view="blog" style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8125rem; color: #ffffff; text-decoration: underline; margin-top: 0.5rem;">Read Journal &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": []
+}
+{% endschema %}

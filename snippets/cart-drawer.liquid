@@ -1,0 +1,55 @@
+{% comment %}
+  Aura Beauty - Slide-out Cart Drawer Snippet
+{% endcomment %}
+
+<div class="cart-drawer-overlay">
+  <div class="cart-drawer" role="dialog" aria-modal="true" aria-label="Your Ritual Bag">
+    <div class="drawer-header">
+      <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; color: var(--color-text-primary);">Your Ritual Bag</h3>
+        <span class="label-md" style="color: var(--color-secondary);">(<span class="cart-count-badge" style="position: static; display: inline-flex; height: 16px; min-width: 16px; padding: 0 4px; vertical-align: middle;">2</span> items)</span>
+      </div>
+      <button data-action="close-cart" aria-label="Close Bag" style="padding: 4px; color: var(--color-text-primary);">
+        <span class="material-symbols-outlined" style="font-size: 22px;">close</span>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress -->
+    <div style="padding: 1rem 1.5rem 0.5rem; background: var(--color-surface-low); border-bottom: 1px solid var(--color-border);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <span class="label-sm" style="color: var(--color-secondary); display: flex; align-items: center; gap: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 14px;">eco</span> Complimentary Shipping
+        </span>
+        <span class="label-sm shipping-percent-text" style="color: var(--color-secondary);">82% Reached</span>
+      </div>
+      <div class="progress-track" style="margin: 6px 0;">
+        <div class="progress-fill" id="shipping-progress" style="width: 82%;"></div>
+      </div>
+      <p class="shipping-remaining-text" style="font-size: 0.75rem; color: var(--color-text-secondary); margin-bottom: 6px;">
+        Add <span style="font-weight: 600; color: var(--color-text-primary);">$17.00</span> more to unlock complimentary carbon-neutral shipping &amp; a deluxe 5ml sample.
+      </p>
+    </div>
+
+    <div class="drawer-body cart-drawer-items">
+      <!-- Items dynamically populated by AuraCart.updateUI() -->
+    </div>
+
+    <div class="drawer-footer">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <span style="font-size: 0.875rem; color: var(--color-text-secondary);">Subtotal</span>
+        <span class="cart-subtotal-text" style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 1rem;">Taxes and calculated shipping applied at checkout.</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="#checkout" data-view="checkout" onclick="window.AuraCart.closeDrawer();" class="btn-primary" style="width: 100%; border-radius: var(--radius-md);">
+          <span>Proceed to Checkout</span>
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        </a>
+        <a href="#cart" data-view="cart" onclick="window.AuraCart.closeDrawer();" class="btn-secondary" style="width: 100%; border-radius: var(--radius-md); text-align: center;">
+          View Full Ritual Bag
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

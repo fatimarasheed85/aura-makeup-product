@@ -1,0 +1,140 @@
+<div data-view-section="product" style="background: var(--color-canvas); padding: 2rem 0 4rem;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" class="product-layout-grid">
+      
+      <!-- Left: Interactive Gallery -->
+      <div>
+        <div style="aspect-ratio: 4/5; border-radius: var(--radius-xl); overflow: hidden; background: var(--color-surface-container); border: 1px solid var(--color-border); position: relative; box-shadow: var(--shadow-subtle);">
+          <img id="main-product-image" src="{{ 'serum.png' | asset_url }}" alt="Luminous Dew Elixir on Natural Travertine Pedestal" width="600" height="750" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.25s ease;">
+          <div style="position: absolute; top: 1rem; left: 1rem;">
+            <span class="badge-award">Award Winner</span>
+          </div>
+          <div style="position: absolute; bottom: 1rem; inset-x: 0; display: flex; justify-content: center; gap: 6px;">
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-text-primary); cursor: pointer;" onclick="window.switchProductSlide(0)"></span>
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer;" onclick="window.switchProductSlide(1)"></span>
+            <span class="gallery-dot" style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-border); cursor: pointer;" onclick="window.switchProductSlide(2)"></span>
+          </div>
+        </div>
+
+        <!-- Thumbnail selector strip -->
+        <div style="display: flex; gap: 0.75rem; margin-top: 1rem; overflow-x: auto; padding-bottom: 4px;">
+          <button class="thumb-btn" onclick="window.switchProductSlide(0)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid var(--color-text-primary); cursor: pointer; flex-shrink: 0;">
+            <img src="{{ 'serum.png' | asset_url }}" alt="Bottle angle" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <button class="thumb-btn" onclick="window.switchProductSlide(1)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid transparent; opacity: 0.6; cursor: pointer; flex-shrink: 0;">
+            <img src="{{ 'lip-oil.png' | asset_url }}" alt="Macro droplet" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <button class="thumb-btn" onclick="window.switchProductSlide(2)" style="width: 70px; height: 85px; border-radius: var(--radius-md); overflow: hidden; border: 2px solid transparent; opacity: 0.6; cursor: pointer; flex-shrink: 0;">
+            <img src="{{ 'portrait.png' | asset_url }}" alt="Hydrated glow" width="70" height="85" style="width: 100%; height: 100%; object-fit: cover;">
+          </button>
+          <div style="width: 70px; height: 85px; border-radius: var(--radius-md); background: var(--color-blush-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-secondary); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; cursor: pointer; flex-shrink: 0;">
+            <span class="material-symbols-outlined" style="font-size: 22px;">view_in_ar</span>
+            <span>3D View</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Details, Rituals & Purchase -->
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span class="label-sm" style="color: var(--color-secondary);">Aura Skincare • Clinical Botanical</span>
+            <span class="badge-clean"><span class="material-symbols-outlined" style="font-size: 13px;">eco</span> Clean Formula</span>
+          </div>
+
+          <h1 class="headline-lg" style="color: var(--color-text-primary);">Luminous Dew Elixir</h1>
+          <p class="body-md" style="margin-top: 0.25rem;">Multi-Active Botanical Face Serum &amp; Illuminating Treatment</p>
+
+          <!-- Reviews rating -->
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem;">
+            <div style="display: flex; color: #d4a373;">
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined" style="font-size: 18px; font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">4.9</span>
+            <span style="font-size: 0.8rem; color: var(--color-text-secondary);">(142 verified client reviews)</span>
+          </div>
+
+          <!-- Price -->
+          <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-top: 1.25rem;">
+            <span style="font-family: var(--font-serif); font-size: 2rem; font-weight: 600; color: var(--color-text-primary);">$68.00</span>
+            <span style="font-size: 0.8125rem; color: var(--color-text-secondary);">or 4 interest-free payments of $17.00 with Afterpay</span>
+          </div>
+        </div>
+
+        <!-- Volume selection -->
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-primary);">Size &amp; Volume</label>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.8125rem; border-radius: var(--radius-full);">30ml / 1.0 fl oz</button>
+            <button class="btn-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.8125rem; border-radius: var(--radius-full);">50ml Luxury Flacon (+$34)</button>
+          </div>
+        </div>
+
+        <!-- Purchase Actions -->
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; padding-top: 0.5rem;">
+          <button onclick="window.quickAddProduct('elixir-01')" class="btn-primary" style="padding: 1rem; width: 100%; font-size: 0.95rem; border-radius: var(--radius-md);">
+            <span class="material-symbols-outlined" style="font-size: 20px;">shopping_bag</span>
+            <span>Add to Ritual Bag — $68.00</span>
+          </button>
+          <a href="/checkout" class="btn-secondary" style="padding: 0.9rem; width: 100%; text-align: center; border-radius: var(--radius-md); background: var(--color-blush-soft); color: var(--color-secondary);">
+            Instant Express Checkout
+          </a>
+        </div>
+
+        <!-- Sensory Accordions -->
+        <div class="ritual-accordion" style="margin-top: 1.5rem;">
+          <div class="accordion-item active">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>The Ritual: How to Apply</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Warm 3 to 4 drops between the palms of clean hands. Gently press into cleansed facial contours, neck, and decolletage using measured upward strokes. Recommended for morning awakening and evening restorative layering.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>Clinical Bio-Activity &amp; Trials</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Independent 28-day blind clinical evaluation: 96% observed immediate luminous glass-skin hydration; 91% reported strengthened epidermal barrier and reduced trans-epidermal water loss.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+              <span>Key Actives &amp; Full INCI Ingredients</span>
+              <span class="icon-toggle">+</span>
+            </button>
+            <div class="accordion-content">
+              Camellia Japonica Seed Oil, Cold-Pressed Squalane, Meadowfoam Delta-Lactone, Ceramide NP, Multi-Molecular Hyaluronic Complex, Rosa Damascena Flower Nectar, Bakuchiol, Vitamin E Tocopherol. 100% Free of synthetic fragrance, parabens, sulfates, and silicones.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .product-layout-grid {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": []
+}
+{% endschema %}

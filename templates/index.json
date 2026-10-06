@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner"
+    },
+    "featured": {
+      "type": "featured-collection"
+    },
+    "view_collection": {
+      "type": "main-collection"
+    },
+    "view_product": {
+      "type": "main-product"
+    },
+    "view_cart": {
+      "type": "main-cart"
+    },
+    "view_checkout": {
+      "type": "main-checkout"
+    },
+    "view_faq": {
+      "type": "main-faq"
+    },
+    "view_blog": {
+      "type": "main-blog"
+    },
+    "view_about": {
+      "type": "main-about"
+    },
+    "view_contact": {
+      "type": "main-contact"
+    },
+    "view_tracking": {
+      "type": "main-tracking"
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "view_collection",
+    "view_product",
+    "view_cart",
+    "view_checkout",
+    "view_faq",
+    "view_blog",
+    "view_about",
+    "view_contact",
+    "view_tracking"
+  ]
+}

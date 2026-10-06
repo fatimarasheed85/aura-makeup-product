@@ -1,0 +1,119 @@
+<div data-view-section="checkout" style="background: var(--color-canvas); padding: 2.5rem 0 5rem;">
+  <div class="container" style="max-width: 1000px;">
+    
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <a href="/" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+        <img src="{{ 'brand-logo.png' | asset_url }}" alt="Aura Logo" width="36" height="36" style="height: 36px; width: 36px; object-fit: contain;">
+        <span style="font-family: var(--font-serif); font-size: 1.75rem; letter-spacing: 0.05em; color: var(--color-text-primary);">AURA</span>
+      </a>
+      <p style="font-size: 0.8125rem; color: var(--color-text-secondary); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em;">Sacred Ritual Checkout</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem;" class="checkout-grid">
+      
+      <!-- Left: Checkout Forms -->
+      <div>
+        
+        <!-- Express Payment -->
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.5rem;">
+          <span class="label-sm" style="color: var(--color-text-secondary); display: block; margin-bottom: 0.75rem; text-align: center;">Express Luxury Checkout</span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <button class="btn-primary" style="background: #5a31f4; border-color: #5a31f4; padding: 0.75rem; font-size: 0.9rem; border-radius: var(--radius-md);">Shop Pay</button>
+            <button class="btn-primary" style="background: #ffc439; color: #111; border-color: #ffc439; padding: 0.75rem; font-size: 0.9rem; border-radius: var(--radius-md);">PayPal</button>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0;">
+          <span style="height: 1px; background: var(--color-border); flex: 1;"></span>
+          <span class="label-sm" style="color: var(--color-text-muted);">or standard details</span>
+          <span style="height: 1px; background: var(--color-border); flex: 1;"></span>
+        </div>
+
+        <!-- Contact & Shipping Form -->
+        <form onsubmit="event.preventDefault(); alert('Order Placed Successfully! Your Order Confirmation is #AURA-8492. Check Order Tracking page to trace delivery.'); window.location.href='/tracking';" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">1. Client Contact</h3>
+            <input type="email" placeholder="Email Address for Order Confirmation" required style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+          </div>
+
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">2. Delivery Sanctuary</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+              <input type="text" placeholder="First Name" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="Last Name" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+            </div>
+            <input type="text" placeholder="Street Address / Suite" required style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem; margin-bottom: 0.75rem;">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0.75rem;">
+              <input type="text" placeholder="City" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="State / Province" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+              <input type="text" placeholder="Postal Code" required style="padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-card); font-size: 0.875rem;">
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--color-text-primary);">3. Complimentary Botanical Sample</h3>
+            <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 1rem; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--color-secondary);">
+                <div>
+                  <p style="font-weight: 600; font-size: 0.875rem; color: var(--color-text-primary);">Include 5ml Deluxe Dew Elixir Sample</p>
+                  <p style="font-size: 0.75rem; color: var(--color-text-secondary);">Encased in travel glass flacon</p>
+                </div>
+              </div>
+              <span class="badge-award">Free Gift</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="padding: 1.15rem; font-size: 1rem; border-radius: var(--radius-md); width: 100%; margin-top: 1rem;">
+            <span>Complete Order</span>
+            <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+          </button>
+        </form>
+
+      </div>
+
+      <!-- Right: Order Items & Subtotal -->
+      <div>
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem; position: sticky; top: 90px;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--color-text-primary);">Ritual Bag Summary</h3>
+          
+          <div class="cart-drawer-items" style="max-height: 280px; overflow-y: auto; margin-bottom: 1.25rem;">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div style="border-top: 1px solid var(--color-border); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--color-text-secondary);">Subtotal</span>
+              <span class="cart-subtotal-text" style="font-weight: 600; color: var(--color-text-primary);">$100.00</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
+              <span style="color: var(--color-text-secondary);">Shipping</span>
+              <span style="color: var(--color-secondary); font-weight: 600;">Carbon-Neutral Free</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 600; border-top: 1px solid var(--color-border); padding-top: 0.75rem; margin-top: 0.5rem;">
+              <span>Total Due</span>
+              <span class="cart-total-text" style="font-family: var(--font-serif); color: var(--color-text-primary);">$100.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  @media (min-width: 900px) {
+    .checkout-grid {
+      grid-template-columns: 1.3fr 1fr !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Checkout",
+  "settings": []
+}
+{% endschema %}

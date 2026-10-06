@@ -1,0 +1,22 @@
+{
+  "general": {
+    "brand_name": "AURA",
+    "tagline": "Skin-First Radiance, Bottled.",
+    "search": "Search rituals & formulas...",
+    "continue_shopping": "Keep Shopping",
+    "view_all": "Discover All"
+  },
+  "cart": {
+    "title": "Your Ritual Bag",
+    "empty": "Your ritual bag is empty",
+    "subtotal": "Ritual Subtotal",
+    "checkout": "Proceed to Sacred Checkout",
+    "free_shipping_goal": "Goal: $117.00 for complimentary shipping & deluxe gift"
+  },
+  "products": {
+    "add_to_cart": "Add to Ritual Bag",
+    "best_seller": "Best Seller",
+    "clean_formula": "Clean Formula",
+    "award_winner": "Award Winner"
+  }
+}

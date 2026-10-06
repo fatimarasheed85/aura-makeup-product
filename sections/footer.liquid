@@ -1,0 +1,64 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+          <img src="{{ 'brand-logo.png' | asset_url }}" alt="Aura Logo" width="28" height="28" style="height: 28px; width: 28px; object-fit: contain; filter: brightness(0) invert(1);">
+          <span style="font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 0.05em; color: #ffffff;">AURA</span>
+        </div>
+        <p>Sensory calm and luminous purity. Crafted with bio-compatible cold-pressed botanicals for effortless dewy radiance.</p>
+        <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem;">
+          <span class="badge-clean" style="background: rgba(255,255,255,0.1); color: #ffffff;">Carbon-Neutral</span>
+          <span class="badge-clean" style="background: rgba(255,255,255,0.1); color: #ffffff;">Cruelty-Free</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Boutique Rituals</h4>
+        <ul class="footer-links">
+          <li><a href="#collection" data-view="collection">The Dew Collection</a></li>
+          <li><a href="#product" data-view="product">Luminous Dew Elixir</a></li>
+          <li><a href="#collection" data-view="collection">Barrier Repair Creams</a></li>
+          <li><a href="#collection" data-view="collection">Lip Oil Treatments</a></li>
+          <li><a href="#collection" data-view="collection">Sensory Gift Sets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">The House</h4>
+        <ul class="footer-links">
+          <li><a href="#about" data-view="about">Our Clean Philosophy</a></li>
+          <li><a href="#blog" data-view="blog">The Radiance Journal</a></li>
+          <li><a href="#faq" data-view="faq">Client Care &amp; FAQ</a></li>
+          <li><a href="#tracking" data-view="tracking">Track Your Shipment</a></li>
+          <li><a href="#contact" data-view="contact">Concierge Studio</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">The Radiance Letter</h4>
+        <p style="font-size: 0.8125rem; color: #a89f9b; margin-bottom: 1rem;">Receive seasonal botanical harvest notes and private preview invitations.</p>
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Radiance Letter.');" style="display: flex; gap: 0.5rem;">
+          <input type="email" placeholder="Your email address" required style="flex: 1; padding: 0.65rem 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #ffffff; font-size: 0.8125rem;">
+          <button type="submit" class="btn-primary btn-pill" style="padding: 0.65rem 1rem; font-size: 0.75rem; background: var(--color-blush-accent); color: var(--color-text-primary);">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aura Beauty Luxury, Inc. All rights reserved. Designed with Radiant Dew Skin system.</p>
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="#faq" data-view="faq">Privacy Policy</a>
+        <a href="#faq" data-view="faq">Terms of Service</a>
+        <a href="#contact" data-view="contact">Customer Concierge</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

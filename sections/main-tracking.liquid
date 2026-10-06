@@ -1,0 +1,63 @@
+<div data-view-section="tracking" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 760px;">
+    
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.5rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">local_shipping</span>
+        <span class="label-sm">Fulfillment Sanctuary</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">Track Your Shipment</h1>
+      <p class="body-md" style="margin-top: 0.5rem;">
+        Enter your order confirmation number (e.g. <strong>#AURA-8492</strong>) and email to trace your carbon-neutral delivery in real time.
+      </p>
+    </header>
+
+    <!-- Tracking Lookup Card -->
+    <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-subtle);">
+      <form onsubmit="window.trackOrder(event);" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.35rem; color: var(--color-text-primary);">Order Number</label>
+          <input type="text" id="tracking-order-input" value="#AURA-8492" required placeholder="#AURA-XXXX" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.95rem; font-family: monospace; letter-spacing: 0.05em;">
+        </div>
+
+        <div>
+          <label class="label-sm" style="display: block; margin-bottom: 0.35rem; color: var(--color-text-primary);">Client Email or Phone</label>
+          <input type="email" value="client@example.com" required placeholder="name@domain.com" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); background: var(--color-surface-low); font-size: 0.875rem;">
+        </div>
+
+        <button type="submit" class="btn-primary" style="padding: 1rem; border-radius: var(--radius-md); font-size: 0.95rem; margin-top: 0.5rem;">
+          <span>Locate Parcel &amp; View Milestones</span>
+          <span class="material-symbols-outlined" style="font-size: 18px;">radar</span>
+        </button>
+      </form>
+
+      <!-- Tracking Results Box (Loaded on submit) -->
+      <div id="tracking-result">
+        <!-- Automatically initialized on page load with trackOrder() -->
+      </div>
+    </div>
+
+    <!-- Assurance notice -->
+    <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1.5rem; text-align: center; font-size: 0.8rem; color: var(--color-text-muted);">
+      <span style="display: flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">thermostat</span> Climate-controlled transit</span>
+      <span style="display: flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 16px;">forest</span> 100% Carbon offset</span>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Show default tracking demo on load
+    if (window.trackOrder) {
+      window.trackOrder();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main Tracking",
+  "settings": []
+}
+{% endschema %}

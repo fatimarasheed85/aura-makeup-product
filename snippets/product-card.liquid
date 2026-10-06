@@ -1,0 +1,35 @@
+{% comment %}
+  Aura Beauty - Reusable Product Card Snippet
+{% endcomment %}
+
+<div class="product-card">
+  <div class="product-card-media">
+    {% if product.badge %}
+      <div class="product-card-badge">
+        <span class="badge-award">{{ product.badge }}</span>
+      </div>
+    {% endif %}
+    <button aria-label="Add to Wishlist" class="product-card-wishlist">
+      <span class="material-symbols-outlined" style="font-size: 16px;">favorite</span>
+    </button>
+    {% assign fallback_img = 'serum.png' | asset_url %}
+    <a href="{{ product.url | default: '#product' }}" data-view="product">
+      <img src="{{ product.featured_image | default: fallback_img }}" alt="{{ product.title | default: 'Aura Skincare Product' }}" width="400" height="400" loading="lazy">
+    </a>
+  </div>
+  
+  <div class="product-card-info">
+    <span class="product-card-category">{{ product.type | default: "Botanical Concentrate" }}</span>
+    <h3 class="product-card-title">
+      <a href="{{ product.url | default: '#product' }}" data-view="product">{{ product.title }}</a>
+    </h3>
+    <p class="product-card-benefit">{{ product.description | truncatewords: 10 | default: "Skin-first bioactive formulation for luminous glass skin." }}</p>
+    
+    <div class="product-card-footer">
+      <span class="product-card-price">${{ product.price | default: "68.00" }}</span>
+      <button class="product-card-quick-add" onclick="window.quickAddProduct('{{ product.id | default: 'elixir-01' }}')">
+        Add to Bag
+      </button>
+    </div>
+  </div>
+</div>

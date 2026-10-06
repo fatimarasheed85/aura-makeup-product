@@ -1,0 +1,101 @@
+<div data-view-section="faq" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 800px;">
+    
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.5rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">help</span>
+        <span class="label-sm">Client Guidance &amp; Rituals</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">Frequently Answered Inquiries</h1>
+      <p class="body-md" style="margin-top: 0.5rem;">Everything you need to know about our cold-pressed bioactive formulations, sustainability practices, and application rituals.</p>
+    </div>
+
+    <!-- Accordion Group 1: Formulations -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="material-symbols-outlined" style="color: var(--color-secondary);">eco</span>
+        Formulations &amp; Bio-Activity
+      </h3>
+      
+      <div class="ritual-accordion">
+        <div class="accordion-item active">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>What makes Aura formulations biocompatible?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Our chemists formulate with physiological lipids, phytosterols, and skin-identical ceramides. Rather than sitting on the surface, our lightweight molecular weight allows deep absorption without occlusive heaviness, supporting your skin’s innate lipid matrix.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>Are Aura Beauty products safe for sensitive or reactive skin?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Yes. Every formula is dermatologist-tested, hypoallergenic, and clinically trialed on reactive complexions. We strictly exclude artificial fragrance, synthetic dyes, alcohol, sulfates, and parabens.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How does the cold-pressing process preserve potency?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Traditional heat extraction damages delicate antioxidants and fatty acids. Our low-temperature, zero-heat hydraulic extraction preserves 98.4% of natural bioactive vitamins and enzymes.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion Group 2: Shipping & Packaging -->
+    <div style="margin-bottom: 2.5rem;">
+      <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <span class="material-symbols-outlined" style="color: var(--color-secondary);">local_shipping</span>
+        Shipping, Packaging &amp; Sustainability
+      </h3>
+      
+      <div class="ritual-accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How does complimentary carbon-neutral shipping work?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Orders over $85 automatically receive complimentary carbon-neutral delivery. We offset 100% of transport emissions through certified reforestation projects in Hokkaido and the Scottish Highlands.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>Is your packaging truly compostable?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            Our outer packaging is made with recycled cotton seed paper embedded with wild chamomile seeds—simply plant the box in soil and keep moist. Our flacons and jars are crafted from 100% recyclable frosted glass and gold aluminum.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="window.toggleAccordion(this)">
+            <span>How do I track my active parcel?</span>
+            <span class="icon-toggle">+</span>
+          </button>
+          <div class="accordion-content">
+            You can visit our <a href="/tracking" style="text-decoration: underline; color: var(--color-secondary); font-weight: 600;">Order Tracking Sanctuary</a> and enter your order confirmation number (e.g. #AURA-8492) for real-time temperature and courier milestones.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main FAQ",
+  "settings": []
+}
+{% endschema %}

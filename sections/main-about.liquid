@@ -1,0 +1,77 @@
+<div data-view-section="about" style="background: var(--color-canvas); padding: 3rem 0 5rem;">
+  <div class="container" style="max-width: 900px;">
+    
+    <header style="text-align: center; margin-bottom: 3.5rem;">
+      <span class="label-sm" style="color: var(--color-secondary); letter-spacing: 0.1em;">Our Clean House</span>
+      <h1 class="display-hero" style="color: var(--color-text-primary); margin-top: 0.5rem;">The Aura Philosophy</h1>
+      <p class="body-lg" style="color: var(--color-text-secondary); max-width: 600px; margin: 0.75rem auto 0;">
+        Conscious luxury born from the sensory calm of Japanese botanicals and French green biochemistry.
+      </p>
+    </header>
+
+    <!-- Visual Story Banner -->
+    <div style="border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 3.5rem; position: relative; border: 1px solid var(--color-border); box-shadow: var(--shadow-subtle);">
+      <img src="{{ 'home-preview.png' | asset_url }}" alt="Aura Beauty Botanical Atelier" width="900" height="480" style="width: 100%; max-height: 480px; object-fit: cover;">
+    </div>
+
+    <!-- Editorial Text Section -->
+    <div style="display: flex; flex-direction: column; gap: 2.5rem; font-size: 1.05rem; line-height: 1.8; color: var(--color-text-primary);">
+      <div>
+        <h2 class="headline-md" style="margin-bottom: 1rem;">Purity Without Clinical Sterility</h2>
+        <p style="color: var(--color-text-secondary);">
+          We founded Aura Beauty out of a longing for quiet luxury: formulations that honor the skin’s delicate ecosystem rather than waging war against it. For decades, the cosmetics landscape demanded a compromise between cold, clinical chemicals that stripped the skin barrier, or natural oils that felt heavy and unstable.
+        </p>
+        <p style="color: var(--color-text-secondary); margin-top: 1rem;">
+          Our answer is <strong>Radiant Dew Bio-Compatibility</strong>—a meticulous balance where every single active lipid, botanical ferments, and plant-derived hyaluronic peptide mirrors your body's natural moisture barrier.
+        </p>
+      </div>
+
+      <!-- Core Brand Pillars -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 1rem 0;">
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">eco</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Wild Harvested</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Sustainably collected Camellia seed, rosehip, and meadowfoam picked at dawn peak potency.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">science</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Zero-Heat Extraction</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Hydraulic low-temperature pressing ensures delicate antioxidants never oxidize or degrade.</p>
+        </div>
+
+        <div style="background: var(--color-surface-card); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.5rem;">
+          <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-secondary);">compost</span>
+          <h3 style="font-family: var(--font-serif); font-size: 1.15rem; margin: 0.75rem 0 0.25rem;">Closed Loop Earth</h3>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Plantable chamomile seed boxes, recycled frosted flacons, and certified carbon offsets.</p>
+        </div>
+      </div>
+
+      <!-- Founder Quote -->
+      <div style="background: var(--color-surface-card); border-left: 3px solid var(--color-blush-accent); padding: 2rem; border-radius: 0 var(--radius-lg) var(--radius-lg) 0;">
+        <blockquote style="font-family: var(--font-serif); font-size: 1.35rem; font-style: italic; color: var(--color-text-primary); margin-bottom: 1rem;">
+          "True radiance isn't a coat of paint. It is the quiet, luminous sigh of a skin barrier that finally has everything it needs."
+        </blockquote>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="{{ 'portrait.png' | asset_url }}" alt="Aura Founder" width="44" height="44" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;">
+          <div>
+            <p style="font-weight: 600; font-size: 0.9rem; color: var(--color-text-primary);">Aura Beauchamp</p>
+            <p style="font-size: 0.75rem; color: var(--color-text-secondary);">Founder &amp; Creative Formulator</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="/collection" class="btn-primary btn-pill" style="padding: 0.9rem 2.25rem;">Experience The Collection</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main About",
+  "settings": []
+}
+{% endschema %}

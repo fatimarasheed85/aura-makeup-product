@@ -1,0 +1,129 @@
+<div data-view-section="collection" style="background: var(--color-canvas); padding: 1.5rem 0 4rem;">
+  <div class="container">
+    
+    <!-- Category Header -->
+    <header style="margin-bottom: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.35rem; color: var(--color-secondary); margin-bottom: 0.35rem;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">flare</span>
+        <span class="label-sm">Mindful Formulations</span>
+      </div>
+      <h1 class="headline-lg" style="color: var(--color-text-primary);">The Complexion &amp; Dew Collection</h1>
+      <p class="body-md" style="margin-top: 0.5rem; max-width: 600px;">
+        16 high-performance, skin-first rituals crafted for luminous vitality and biocompatible barrier repair.
+      </p>
+    </header>
+
+    <!-- Sticky Filters & Sort Bar -->
+    <div style="position: sticky; top: 68px; z-index: 20; background: rgba(251, 249, 245, 0.95); backdrop-filter: blur(12px); padding: 0.75rem 0; margin-bottom: 2rem; border-bottom: 1px solid var(--color-border);">
+      <div style="display: flex; align-items: center; gap: 0.5rem; overflow-x: auto; padding-bottom: 4px;">
+        <button class="btn-secondary btn-pill" style="padding: 0.4rem 1rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.35rem; white-space: nowrap;">
+          <span class="material-symbols-outlined" style="font-size: 16px;">tune</span>
+          <span>Filter &amp; Sort (3)</span>
+        </button>
+        <span style="width: 1px; height: 20px; background: var(--color-border); flex-shrink: 0;"></span>
+        
+        <button class="btn-primary btn-pill filter-chip active" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap; display: flex; align-items: center; gap: 4px;">
+          <span>Finish: Dewy Glow</span>
+          <span class="material-symbols-outlined" style="font-size: 14px;">close</span>
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Serum &amp; Oil
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Barrier Repair
+        </button>
+        
+        <button class="btn-secondary btn-pill filter-chip" style="padding: 0.4rem 1rem; font-size: 0.75rem; white-space: nowrap;">
+          Under $70
+        </button>
+      </div>
+    </div>
+
+    <!-- Product Grid (2 to 4 columns) -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem;" id="collection-grid">
+      
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Best Seller</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="{{ 'serum.png' | asset_url }}" alt="Luminous Dew Elixir" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Revitalizing Concentrate</span>
+          <h3 class="product-card-title"><a href="/product">Luminous Dew Elixir</a></h3>
+          <p class="product-card-benefit">Multi-active botanical elixir with bio-mimetic hyaluronic peptides.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$68.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('elixir-01')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-award">Award Winner</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="{{ 'barrier-cream.png' | asset_url }}" alt="Whipped Barrier Cream" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Restorative Moisture</span>
+          <h3 class="product-card-title"><a href="/product">Whipped Barrier Cream</a></h3>
+          <p class="product-card-benefit">Ceramide-rich whipped emulsion for ultra-soft, glass skin recovery.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$62.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('cream-02')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">New Arrival</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="{{ 'lip-oil.png' | asset_url }}" alt="Petal Rose Lip Oil" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Sensory Treatment</span>
+          <h3 class="product-card-title"><a href="/product">Petal Rose Lip Oil</a></h3>
+          <p class="product-card-benefit">Glass vial with gold wand applicator in sheer petal rose hue.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$34.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('oil-03')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-card-media">
+          <div class="product-card-badge"><span class="badge-clean">Clean Formula</span></div>
+          <button class="product-card-wishlist" aria-label="Save to Wishlist"><span class="material-symbols-outlined" style="font-size: 16px;">favorite</span></button>
+          <a href="/product"><img src="{{ 'serum.png' | asset_url }}" alt="Botanical Radiance Nectar" width="400" height="400" loading="lazy"></a>
+        </div>
+        <div class="product-card-info">
+          <span class="product-card-category">Overnight Renewal</span>
+          <h3 class="product-card-title"><a href="/product">Botanical Radiance Nectar</a></h3>
+          <p class="product-card-benefit">Bio-fermented bakuchiol oil to smooth fine lines overnight.</p>
+          <div class="product-card-footer">
+            <span class="product-card-price">$74.00</span>
+            <button class="product-card-quick-add" onclick="window.quickAddProduct('nectar-04')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main Collection",
+  "settings": []
+}
+{% endschema %}
